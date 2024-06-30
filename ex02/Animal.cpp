@@ -8,6 +8,7 @@ Animal::Animal()
 
 Animal::~Animal()
 {
+	this->type = "animal";
 	std::cout << "Animal destructor called" << std::endl;
 }
 

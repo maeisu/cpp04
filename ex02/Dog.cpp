@@ -15,10 +15,8 @@ Dog::Dog(const Dog& dog):Animal() {
 	std::cout << "Dog copy constructor called" << std::endl;
 	this->type = dog.type;
 	// deep copy
-	if (this->brain != NULL) {
-		delete this->brain;
-	}
-	this->brain = new Brain(*dog.brain);
+	Brain tmp(*dog.brain);
+	this->brain = &tmp;
 }
 
 Dog &Dog::operator=(const Dog& dog) {
