@@ -1,7 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog():Animal() {
-	this->type = "Dog";
+Dog::Dog():Animal("Dog") {
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
@@ -11,17 +10,17 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog& dog):Animal() {
 	std::cout << "Dog copy constructor called" << std::endl;
-	this->type = dog.type;
+	this->type = dog.getType();
 }
 
 Dog &Dog::operator=(const Dog& dog) {
 	std::cout << "Dog copy assignment operator called" << std::endl;
 	if (this != &dog) {
-		this->type = dog.type;
+		this->type = dog.getType();
 	}
 	return (*this);
 }
 
 void Dog::makeSound() const {
-	std::cout << "wan wan" << std::endl;
+	std::cout << "woof woof" << std::endl;
 }

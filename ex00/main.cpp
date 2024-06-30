@@ -15,11 +15,26 @@ int main()
 	j->makeSound();
 	meta->makeSound();
 
+	std::cout << "--------------------" << std::endl;
+
 	const WrongAnimal* wrongMeta = new WrongAnimal();
 	const WrongAnimal* wrongCat = new WrongCat();
 	std::cout << wrongCat->getType() << " " << std::endl;
 	wrongCat->makeSound(); //will output the cat sound!
 	wrongMeta->makeSound();
 
+	std::cout << "--------------------" << std::endl;
+
+	delete meta;
+	delete j;
+	delete i;
+	delete wrongMeta;
+	delete wrongCat;
+
 	return 0;
 }
+
+// #include <stdlib.h>
+// __attribute__((destructor)) static void destructor(void) {
+//     system("leaks -q Animal");
+// }

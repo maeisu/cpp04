@@ -6,6 +6,13 @@ Animal::Animal()
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
+Animal::Animal(const std::string name)
+{
+	this->type = name;
+	std::cout << "Animal name default constructor called" << std::endl;
+}
+
+
 Animal::~Animal()
 {
 	this->type = "animal";

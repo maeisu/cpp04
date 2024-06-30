@@ -15,6 +15,7 @@ class Dog : public Animal {
 		Dog(const Dog& Dog);
 		Dog& operator=(const Dog& dog);
 		void makeSound() const;
+		Brain* getBrain() const;
 };
 
 #endif

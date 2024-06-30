@@ -1,7 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat():Animal() {
-	this->type = "Cat";
+Cat::Cat():Animal("Cat") {
 	this->brain = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
 }
@@ -12,12 +11,12 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat& cat):Animal() {
-	this->type = cat.type;
+	this->type = cat.getType();
 	// deep copy
 	if (this->brain != NULL) {
 		delete this->brain;
 	}
-	this->brain = new Brain(*cat.brain);
+	this->brain = new Brain(*cat.getBrain());
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -29,11 +28,15 @@ Cat &Cat::operator=(const Cat& cat) {
 		if (this->brain != NULL) {
 			delete this->brain;
 		}
-		this->brain = new Brain(*cat.brain);
+		this->brain = new Brain(*cat.getBrain());
 	}
 	return (*this);
 }
 
 void Cat::makeSound() const {
-	std::cout << "nya nya" << std::endl;
+	std::cout << "meow meow" << std::endl;
+}
+
+Brain* Cat::getBrain() const {
+	return this->brain;
 }
